@@ -39,6 +39,35 @@ exports.register = function (req, res, next) {
 	});
 }
 
+exports.getSublist = function (req, res, next) {
+	
+	var min = parseInt(req.body.min);
+	var max = parseInt(req.body.max);
+	console.log(min,max);
+	let query = {"Content":req.body.Category, value:{$gte:min,$lte:max}};
+	MongoDB.collection("menu").find(query).toArray(function (err, results){
+		if (err) {
+			next(err);
+		} else {
+			console.log(results);
+			res.send(results);
+		}
+	});
+	//res.send("OK");
+}
+
+exports.insert = function (req, res, next) {
+	let userData = req.body;
+	MongoDB.collection("menu").insertOne(userData, function (err, data) {
+		if (err) {
+			next(err);
+		} else {
+			console.log(data);
+			res.send(data);
+		}
+	});
+}
+
 
 exports.getMenu = function (req, res) {
 	let query = req.body;
