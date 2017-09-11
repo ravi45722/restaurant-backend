@@ -1,7 +1,10 @@
 # restaurant-backend
 Api are available for restaurant-frontend
 
-Sample data for the Backend
+
+Create database "login"
+
+Create collection "menu" and insert this Sample data for the Backend
 
   {
     "Content": "Burgers",
@@ -29,3 +32,8 @@ Sample data for the Backend
     "value": 152.15
   }
       
+Create collection "customers" and insert this or generate same data via register 
+
+{ "_id" : ObjectId("59b52dce29c7ee49b756a663"), "name" : "ravi", "email" : "ravi45722@gmail.com", "passport" : "V882527", "password" : "ravi" }
+
+To login give passport number and password
